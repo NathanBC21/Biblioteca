@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivrosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\EmprestimosController;
-use App\Http\Controllers\DevolucaoController;
+use App\Http\Controllers\DevolucoesController;
+
 
 
 /*
@@ -37,6 +38,9 @@ Auth::routes();
 
     Route::resource('cliente', ClientesController::class);
     Route::resource('emprestimo', EmprestimosController::class);
+
+    Route::get('devolucoes/{emprestimo}', [DevolucoesController::class, 'create'])->name('devolucoes.create');
+    Route::post('devolucoes/{emprestimo}', [DevolucoesController::class, 'store'])->name('devolucoes.store');
 
 
 

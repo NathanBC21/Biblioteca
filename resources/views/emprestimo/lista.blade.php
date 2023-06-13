@@ -32,7 +32,7 @@
                                 @forelse ($emprestimos as $emprestimo)
                                     <tr>
                                         <td>{{ $emprestimo->id }}</td>
-                                        <td>{{ $emprestimo->livro->nome}}</td>
+                                        <td>{{ $emprestimo->livro->titulo}}</td>
                                         <td>{{ $emprestimo->cliente->nome}}</td>
                                         <td>{{ $emprestimo->data_emprestimo }}</td>
                                         <td>{{ $emprestimo->quantidade_dias}}</td>
@@ -45,8 +45,7 @@
                                             <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                                             {!! Form::close() !!}
                                             {!! Form::open(['method' => 'POST', 'url' => 'emprestimo/devolver/'. $emprestimo->id, 'style' => 'display:inline']) !!}
-                                            <button type="submit" Class="btn btn-info btn-sm">Devolver</button>
-                                            {!! Form::close()!!}
+                                            <a href="{{ route('devolucoes.create', $emprestimo) }}">Devolver</a>
                                         </td>
                                     </tr>
                                 @empty
