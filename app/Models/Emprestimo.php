@@ -26,9 +26,9 @@ class Emprestimo extends Model
 
     }
 
-    public function devolucao()
+    /*public function devolucao()
     {
         return $this->hasOne(Devolucao::class);
-    }
+    }*/
 
 }

@@ -39,6 +39,7 @@ Auth::routes();
     Route::resource('cliente', ClientesController::class);
     Route::resource('emprestimo', EmprestimosController::class);
 
+    Route::resource('devolucao', DevolucoesController::class);
     Route::get('devolucoes/{emprestimo}', [DevolucoesController::class, 'create'])->name('devolucoes.create');
     Route::post('devolucoes/{emprestimo}', [DevolucoesController::class, 'store'])->name('devolucoes.store');
 

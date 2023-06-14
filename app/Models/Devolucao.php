@@ -10,8 +10,13 @@ class Devolucao extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nome_pessoa',
         'emprestimo_id',
+        'multa'
         // Other fields...
     ];
+
+    public function emprestimo(){
+        return $this->belongsTo(Emprestimo::class);
+
+    }
 }

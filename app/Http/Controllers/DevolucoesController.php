@@ -6,15 +6,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Emprestimo;
 use App\Models\Devolucao;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use PDF;
 
 class DevolucoesController extends Controller
 {
+    public function index()
+    {
+        $devolucoes = Devolucao::with('emprestimo')->paginate(25);
+
+        return view('devolucao.create', compact('devolucoes'));
+    }
+
     public function create(Emprestimo $emprestimo)
     {
         return view('devolucao.create', compact('emprestimo'));
     }
+
 
     public function store(Request $request, Emprestimo $emprestimo)
     {
