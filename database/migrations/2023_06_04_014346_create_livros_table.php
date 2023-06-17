@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('titulo', 50);
             $table->string('autor', 80);
-            $table->integer('ano_publicacao');
-            $table->integer('quantidade_paginas');
+            $table->integer('ano_publicacao', 11);
+            $table->integer('quantidade_paginas', 11);
             $table->string('edicao', 10);
             $table->string('editora', 50);
-            $table->integer('ano_edicao');
-            $table->decimal('valor', 8, 2);
+            $table->integer('ano_edicao', 11);
+            $table->float('valor', 8, 2);
             $table->timestamps();
         });
     }

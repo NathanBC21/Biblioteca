@@ -45,7 +45,7 @@
                                             <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                                             {!! Form::close() !!}
                                             {!! Form::open(['method' => 'POST', 'url' => 'emprestimo/devolver/'. $emprestimo->id, 'style' => 'display:inline']) !!}
-                                            <a href="{{ route('devolucoes.create', $emprestimo) }}">Devolver</a>
+                                            <a href="{{ route('devolucoes.create', $emprestimo) }}" class="btn btn-secondary btn-sm">Devolver</a>
                                         </td>
                                     </tr>
                                 @empty

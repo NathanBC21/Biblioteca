@@ -40,9 +40,6 @@
                         <li class="nav-item">
                             <a href="{{ url('emprestimo') }}" class="nav-link">Emprestimos</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ url('devolucao') }}" class="nav-link">Devoluções</a>
-                        </li>
                         @endauth
                     </ul>
 

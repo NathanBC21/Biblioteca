@@ -17,7 +17,7 @@ class Emprestimo extends Model
     ];
 
     public function livro(){
-        return $this->belongsTo(Livro::class);
+        return $this->belongsTo(Livro::class,);
 
     }
 

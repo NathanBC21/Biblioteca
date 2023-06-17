@@ -39,11 +39,21 @@ class DevolucoesController extends Controller
         // Gera o PDF com as informações da devolução
         $pdf = PDF::loadView('devolucao.pdf', compact('devolucao', 'emprestimo'));
 
-        // Salva o PDF em algum diretório ou faça o download aqui
-        $pdf->save('caminho/para/salvar/o/pdf.pdf');
+        // Obtém o conteúdo do PDF como uma string
+        $pdfContent = $pdf->output();
 
-        // Redireciona para alguma página de confirmação, se necessário
-        return redirect()->route('alguma.rota.de.confirmacao');
+        // Define o nome do arquivo para o download
+        $filename = 'devolucao.pdf';
+
+        // Define o tipo de conteúdo como PDF
+        $headers = [
+        'Content-Type' => 'application/pdf',
+        'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+    ];
+
+    // Retorna a resposta HTTP com o conteúdo do PDF para download
+    return response($pdfContent, 200, $headers);
+
     }
 
     private function calcularMulta(Emprestimo $emprestimo)
